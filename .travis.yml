@@ -15,7 +15,7 @@ node_js:
 #  - "6"
 #  - "4"
 script:
-  - istanbul cover ./node_modules/.bin/grunt --report lcovonly && istanbul report text && ( cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true ) && rm -rf coverage
+#  - istanbul cover ./node_modules/.bin/grunt --report lcovonly && istanbul report text && ( cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true ) && rm -rf coverage
   - ./node_modules/chromedriver/bin/chromedriver --url-base=/wd/hub --port=4444 &
   - ./node_modules/.bin/wdio wdio.conf.js
 before_script:
@@ -24,3 +24,4 @@ before_script:
   - npm install webdriverio
   - npm install chromedriver
   - npm install wdio-spec-reporter
+  - npm install wdio-mocha-framework
