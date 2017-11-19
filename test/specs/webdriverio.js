@@ -16,7 +16,7 @@ describe('webdriver.io page', function() {
 
     it('should have an input label', function() {
         var inputLabel = browser.getText('#palette-header-input');
-        inputLabel.should.equal('入力');
+        inputLabel.should.equal('input');
     });
 
     it('should be able to drag and drop', function() {
@@ -50,6 +50,7 @@ describe('webdriver.io page', function() {
         browser.moveToObject('#palette_node_debug', 300, -50);
         browser.buttonUp();
 
+        browser.waitForExist('.port_output', 10000);
         browser.moveToObject('.port_output');
         browser.buttonDown();
         browser.moveToObject('.port_input');
