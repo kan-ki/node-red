@@ -9,6 +9,16 @@ describe('webdriver.io page', function() {
     after(function() {
     });
 
+    it('should have a right title', function () {
+        var title = browser.getTitle();
+        title.should.equal('Node-RED');
+    });
+
+    it('should have an input label', function() {
+        var inputLabel = browser.getText('#palette-header-input');
+        inputLabel.should.equal('入力');
+    });
+
     it('should be able to drag and drop', function() {
         browser.waitForExist('#palette_node_inject', 10000);
         // console.log(browser.getText('.nodegroup:nth-of-type(2)'));
@@ -54,7 +64,6 @@ describe('webdriver.io page', function() {
         var debugMessage = browser.getText('.debug-message-type-number');
         debugMessage.should.within(1500000000000, 3000000000000);
     });
-
 /*
     it('should connect with a wire', function() {
         browser.moveToObject('.port_output');
